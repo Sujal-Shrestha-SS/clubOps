@@ -1,0 +1,42 @@
+
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 220px;
+    height: 100%;
+    background: linear-gradient(180deg, #14233f, #0073e6);    
+    padding: 20px;
+    box-sizing: border-box;
+    color: #fff;
+    
+    /* Glow effect */
+    box-shadow: 4px 0 15px rgba(0, 115, 230, 0.6); /* blue glow to match theme */
+}
+
+
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+.sidebar a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 12px;
+    margin-bottom: 8px;
+    border-radius: 5px;
+    transition: background 0.2s;
+}
+.sidebar a:hover {
+    background: #005bb5;
+}
+
+.main-content {
+    margin-left: 240px; /* leave space for sidebar */
+    padding: 30px;
+    /* height: 100%; */
+}
