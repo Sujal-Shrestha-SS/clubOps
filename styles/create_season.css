@@ -1,0 +1,279 @@
+/* create_season.css
+   Bold animated gradient + frosted center card + colorful cards
+   Works with your current HTML (no HTML changes required) */
+
+/* Google font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+:root{
+  --bg-a: #0f0c29;
+  --bg-b: #302b63;
+  --bg-c: #24243e;
+  --accent-1: #ff7ab6;
+  --accent-2: #6ef0c1;
+  --accent-3: #ffd166;
+  --glass-1: rgba(255,255,255,0.06);
+  --glass-2: rgba(255,255,255,0.08);
+  --text-1: #eef2f7;
+}
+
+/* ---------- Page background (animated gradient) ---------- */
+*{box-sizing:border-box}
+html,body{
+  height:100%;
+  margin:0;
+  max-width: 100%;
+  overflow-x: hidden;
+  font-family: 'Poppins', sans-serif;
+  color:var(--text-1);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  background: linear-gradient(120deg, var(--bg-a), var(--bg-b) 40%, var(--bg-c));
+  overflow-y:auto;
+  position:relative;
+}
+
+/* moving soft gradient overlay to add life */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background: linear-gradient(60deg, rgba(255,122,182,0.06), rgba(110,240,193,0.04), rgba(255,209,102,0.03));
+  mix-blend-mode: overlay;
+  animation: drift 18s linear infinite;
+  pointer-events:none;
+  z-index:0;
+}
+@keyframes drift{
+  0%{transform:translateY(0) translateX(0) rotate(0deg);}
+  50%{transform:translateY(-6%) translateX(3%) rotate(2deg);}
+  100%{transform:translateY(0) translateX(0) rotate(0deg);}
+}
+
+/* ---------- Central container (frosted glass panel) ---------- */
+.container{
+  width: 100%;
+  max-width:1100px;
+  margin:40px auto;
+  padding:28px;
+  position:relative; /* keep above animated bg */
+  z-index:1;
+  
+}
+
+/* The main content becomes a frosted card centered on the page */
+.main-content{
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+  border-radius:18px;
+  padding:36px;
+  backdrop-filter: blur(8px) saturate(120%);
+  -webkit-backdrop-filter: blur(8px) saturate(120%);
+  box-shadow: 0 10px 30px rgba(2,6,23,0.6), inset 0 1px 0 rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.04);
+  text-align:center;
+}
+
+/* Title — gradient clipped text for style */
+h1{
+  margin:0 0 18px 0;
+  font-size:2rem;
+  line-height:1;
+  font-weight:700;
+  letter-spacing: -0.02em;
+  background: linear-gradient(90deg, #fff 0%, var(--accent-1) 40%, var(--accent-2) 80%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 4px 20px rgba(0,0,0,0.35);
+}
+
+/* ---------- Create button (top-center pill) ---------- */
+/* This selects the first button that is a direct child of .main-content (your top button) */
+.main-content > button:first-of-type{
+  display:inline-block;
+  margin:18px auto 8px;
+  padding:14px 28px;
+  border-radius:999px;
+  border: none;
+  outline: none;
+  font-weight:600;
+  cursor:pointer;
+  font-size:1rem;
+  color:#111;
+  background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+  box-shadow: 0 8px 24px rgba(47, 13, 68, 0.28), 0 2px 0 rgba(255,255,255,0.06) inset;
+  transform-origin:center;
+  transition: transform .22s cubic-bezier(.2,.9,.2,1), box-shadow .22s;
+}
+
+/* subtle micro-interaction */
+.main-content > button:first-of-type:hover{
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 14px 36px rgba(47,13,68,0.36);
+}
+.main-content > button:first-of-type:active{
+  transform: translateY(-1px) scale(.995);
+}
+
+/* ---------- Create form (slide-in feel) ---------- */
+#createForm{
+  margin-top:14px;
+  transition: all .18s ease;
+  display:block; /* your JS toggles visibility inline; we style it here */
+}
+#createForm form{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  align-items:center;
+  margin-top:6px;
+  flex-wrap:wrap;
+}
+
+/* inputs & submit in the form */
+#createForm input[type="text"]{
+  min-width:220px;
+  max-width:420px;
+  width:34%;
+  padding:11px 14px;
+  border-radius:10px;
+  border:1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.02);
+  color:var(--text-1);
+  font-weight:500;
+  box-shadow: 0 6px 18px rgba(2,6,23,0.28) inset;
+}
+#createForm input::placeholder{ color: rgba(255,255,255,0.45); }
+
+#createForm button{
+  padding:10px 16px;
+  border-radius:10px;
+  border:none;
+  cursor:pointer;
+  font-weight:600;
+  background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,255,255,0.85));
+  color:#1b1330;
+  box-shadow: 0 6px 16px rgba(18,10,36,0.26);
+}
+#createForm button:hover{ transform: translateY(-3px); }
+
+/* ---------- Seasons grid ---------- */
+.season-container{
+  margin-top:28px;
+  display:grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap:20px;
+  align-items:start;
+  padding: 6px 4px 2px;
+}
+
+/* Each season card: colorful tilt ribbon and small badge */
+.season-box{
+  position:relative;
+  padding:18px 16px;
+  border-radius:14px;
+  min-height:84px;
+  display:flex;
+  align-items:center;
+  justify-content:flex-start;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border: 1px solid rgba(255,255,255,0.03);
+  box-shadow: 0 8px 20px rgba(3,8,30,0.55);
+  transition: transform .25s cubic-bezier(.2,.9,.3,1), box-shadow .25s, background .2s;
+  overflow:hidden;
+  cursor:pointer;
+  transform-origin: center;
+}
+
+/* colorful left accent ribbon */
+.season-box::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  bottom:0;
+  width:8px;
+  background: linear-gradient(180deg, var(--accent-1), var(--accent-2));
+  border-top-left-radius:14px;
+  border-bottom-left-radius:14px;
+}
+
+/* angled color stripe across card (decor) */
+.season-box::after{
+  content:"";
+  position:absolute;
+  right:-40%;
+  top:-30%;
+  width:120%;
+  height:70%;
+  transform: rotate(22deg);
+  background: linear-gradient(90deg, rgba(255,122,182,0.08), rgba(110,240,193,0.06));
+  filter: blur(8px);
+  pointer-events:none;
+}
+
+/* clickable link inside the card */
+.season-box a{
+  text-decoration:none;
+  color:var(--text-1);
+  font-weight:600;
+  font-size:1.05rem;
+  z-index:2;
+  display:block;
+  width:100%;
+  padding-left:10px;
+}
+
+/* small trophy emoji / badge at the far right (pure CSS) */
+.season-box .badge {
+  margin-left:auto;
+  background: rgba(255,255,255,0.04);
+  border-radius:8px;
+  padding:6px 10px;
+  font-size:0.92rem;
+  color: rgba(255,255,255,0.95);
+  z-index:2;
+  backdrop-filter: blur(6px);
+}
+
+/* hover/3D tilt effect */
+.season-box:hover{
+  transform: translateY(-8px) rotateX(1deg) scale(1.02);
+  box-shadow: 0 18px 48px rgba(3,8,30,0.65);
+  background: linear-gradient(180deg, rgba(255,255,255,0.025), rgba(255,255,255,0.03));
+}
+
+/* small responsive improvements */
+@media (max-width:760px){
+  .container{ margin:18px 12px; padding:0; }
+  .main-content{ padding:20px; border-radius:12px; }
+  #createForm input[type="text"]{ width:100%; }
+  .season-container{ grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap:14px; }
+  h1{ font-size:1.5rem; }
+  .season-box{ padding:14px; min-height:72px; border-radius:12px; }
+}
+
+/* tiny utility: focus ring for keyboard users */
+input:focus, button:focus, a:focus{ outline: 3px solid rgba(110,240,193,0.12); outline-offset:3px; }
+
+
+.back-button {
+    margin: 20px;
+}
+
+.back-button a {
+    text-decoration: none;
+    background: #14233f;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+.back-button a:hover {
+    background: #1d2d50;
+    box-shadow: 0px 0px 10px rgba(20, 35, 63, 0.8);
+}
+
+
