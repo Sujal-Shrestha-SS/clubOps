@@ -82,3 +82,43 @@ It features a **dual-access model**: a public-facing view for fans and viewers, 
 | Server      | Apache (XAMPP / WAMP recommended) |
 
 ---
+
+## 📁 Project Structure
+
+```
+football-club-management/
+│
+├── index.php                    # Public homepage — lists all seasons
+├── admin_login.php              # Admin login form
+├── admin_sessioncheck.php       # Session guard (included on protected pages)
+├── logout.php                   # Destroys session and redirects
+├── home.php                     # Admin dashboard — season management
+│
+├── club.php                     # Public player list for a season
+├── club_fixtures.php            # Public fixture list with filters
+├── club_performance.php         # Public club performance stats
+├── club_player_performance.php  # Public player card grid with G/A stats
+├── club_player_statistics.php   # Public ranked leaderboards (Goals/Assists/G/A)
+├── club_player_combination.php  # Public player linkup tracker
+│
+├── season.php                   # Admin: manage fixtures for a season
+├── fixture_details.php          # Admin: enter/edit goal and assist stats
+├── insert_players.php           # Admin: add/edit/delete players
+├── player_stats.php             # Admin: player stats overview
+├── league_table.php             # Admin: set club info and league position
+│
+├── home_sidebar.php             # Sidebar navigation (public views)
+├── sidebar.php                  # Sidebar navigation (admin views)
+│
+├── db.php                       # Database connection
+│
+├── styles/
+│   ├── create_season.css        # Global base styles
+│   ├── home-sidebar.css         # Public sidebar styles
+│   ├── sidebar.css              # Admin sidebar styles
+│   └── season.css               # Fixture page styles
+│
+└── uploads/                     # Uploaded player and flag images
+```
+
+---
