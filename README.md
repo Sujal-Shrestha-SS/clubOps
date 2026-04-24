@@ -274,3 +274,18 @@ http://localhost/football-club-management/
 - **REST API layer** — expose data via JSON endpoints for potential mobile app integration
 
 ---
+
+
+## 🤝 Contributing
+
+Contributions are welcome! To get started:
+
+1. Fork the repository
+2. Create a new branch: `git checkout -b feature/your-feature-name`
+3. Make your changes and commit: `git commit -m "Add: your feature description"`
+4. Push to your branch: `git push origin feature/your-feature-name`
+5. Open a Pull Request
+
+Please ensure your code follows the existing style and does not break existing functionality.
+
+---
