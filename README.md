@@ -221,3 +221,42 @@ http://localhost/football-club-management/
 ```
 
 ---
+
+## 🚀 Usage
+
+### Public Access
+- Visit the homepage to browse available seasons
+- Click a season to view the player roster, fixtures, statistics, and club performance
+- No login required for public views
+
+### Admin Access
+1. Click **Admin Login** on the homepage
+2. Enter credentials:
+   - **Username:** `admin`
+   - **Password:** `password123`
+3. From the admin dashboard you can:
+   - Create new seasons
+   - Navigate to a season to manage fixtures
+   - Enter match results and goal/assist stats
+   - Add, edit, or delete players
+   - Set the club's name and final league position
+
+> ⚠️ **Note:** The default admin credentials are hardcoded. It is strongly recommended to implement database-backed authentication before deploying to production.
+
+---
+
+## 📸 Screenshots
+
+> _Screenshots coming soon. Below are the key views available in the system._
+
+| View | Description |
+|------|-------------|
+| 🏠 Homepage | Season listing for public users |
+| 👤 Player Roster | Filterable grid of players with photos and flags |
+| 📅 Fixtures | Match results with goal scorer details |
+| 📊 Statistics | Ranked leaderboards for goals, assists, G/A |
+| 🔗 Player Combinations | Linkup tracker between any two players |
+| 📈 Club Performance | Home/away breakdown of season performance |
+| 🔐 Admin Panel | Fixture creation, result entry, player management |
+
+---
