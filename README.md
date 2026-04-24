@@ -122,3 +122,102 @@ football-club-management/
 ```
 
 ---
+
+
+## ⚙️ Installation & Setup
+
+### Prerequisites
+- [XAMPP](https://www.apachefriends.org/) or [WAMP](https://www.wampserver.com/) (or any Apache + PHP + MySQL stack)
+- PHP 8.0+
+- MySQL 5.7+
+
+### Steps
+
+**1. Clone the repository**
+```bash
+git clone https://github.com/Sujal-Shrestha-SS/clubOps.git
+```
+
+**2. Move to your web server's root directory**
+```bash
+# For XAMPP (Windows):
+cp -r football-club-management/ C:/xampp/htdocs/
+
+# For XAMPP (macOS):
+cp -r football-club-management/ /Applications/XAMPP/htdocs/
+```
+
+**3. Create the database**
+
+Open **phpMyAdmin** (or your MySQL client) and create a new database:
+```sql
+CREATE DATABASE efootball;
+```
+
+Then import the provided SQL schema (if included), or manually create the required tables:
+
+```sql
+CREATE TABLE seasons (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  title VARCHAR(255) NOT NULL,
+  club VARCHAR(255),
+  position INT
+);
+
+CREATE TABLE players (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(255),
+  jersey_no INT,
+  nationality VARCHAR(100),
+  category VARCHAR(50),
+  position VARCHAR(10),
+  picture VARCHAR(255),
+  flag_picture VARCHAR(255),
+  season_id INT
+);
+
+CREATE TABLE fixtures (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  season_id INT,
+  home_team VARCHAR(255),
+  away_team VARCHAR(255),
+  home_score INT DEFAULT 0,
+  away_score INT DEFAULT 0,
+  status VARCHAR(50) DEFAULT 'Pending'
+);
+
+CREATE TABLE goal_stats (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  fixture_id INT,
+  season_id INT,
+  team VARCHAR(10),
+  goal_scorer VARCHAR(255),
+  assist_provider VARCHAR(255),
+  status VARCHAR(50)
+);
+```
+
+**4. Configure the database connection**
+
+Open `db.php` and update credentials if needed:
+```php
+$host = "localhost";
+$user = "root";
+$pw   = "";          // your MySQL password
+$db   = "efootball";
+```
+
+**5. Create the uploads directory**
+```bash
+mkdir uploads
+chmod 755 uploads
+```
+
+**6. Start your server and open the app**
+
+Navigate to:
+```
+http://localhost/football-club-management/
+```
+
+---
