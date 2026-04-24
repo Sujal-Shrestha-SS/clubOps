@@ -67,3 +67,18 @@ It features a **dual-access model**: a public-facing view for fans and viewers, 
 - Full stats summary including matches played and points
 
 ---
+
+
+
+## 🛠️ Tech Stack
+
+| Layer       | Technology                        |
+|-------------|-----------------------------------|
+| Backend     | PHP 8+ (procedural)               |
+| Database    | MySQL via `mysqli`                |
+| Frontend    | HTML5, CSS3, Vanilla JavaScript   |
+| Styling     | Custom CSS with glassmorphism UI  |
+| Sessions    | PHP native session management     |
+| Server      | Apache (XAMPP / WAMP recommended) |
+
+---
