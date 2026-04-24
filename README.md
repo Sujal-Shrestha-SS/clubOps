@@ -260,3 +260,17 @@ http://localhost/football-club-management/
 | 🔐 Admin Panel | Fixture creation, result entry, player management |
 
 ---
+
+
+## 🔮 Future Improvements
+
+- **Database-backed authentication** — replace hardcoded credentials with hashed passwords stored in MySQL
+- **Player profiles** — individual player pages with match-by-match stat history
+- **Match date & time** — add scheduling support with calendar integration
+- **Yellow/Red card tracking** — extend stats to include disciplinary records
+- **Export to PDF/CSV** — allow admins to export stats and reports
+- **Responsive mobile UI** — improved layout for small-screen devices
+- **Role-based access** — differentiate between superadmin, editor, and viewer roles
+- **REST API layer** — expose data via JSON endpoints for potential mobile app integration
+
+---
