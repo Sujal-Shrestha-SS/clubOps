@@ -9,3 +9,11 @@
 A full-stack web application for managing a football club's seasons, players, fixtures, match results, and performance statistics — built with PHP and MySQL.
 
 ---
+
+## 📋 Description
+
+The **Football Club Management System - ClubOps** is a data-driven web application designed to help football club administrators and analysts track everything that matters across a season. From registering players and scheduling fixtures to recording match results and visualising performance metrics, the system provides a centralised dashboard for all club-related data.
+
+It features a **dual-access model**: a public-facing view for fans and viewers, and a password-protected admin panel for club staff to manage data securely.
+
+---
